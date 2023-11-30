@@ -117,11 +117,12 @@ for (let p = 0; p <= newData.length - 1; p++) {
 /**
  *As a final task, transform the final set of data back into CSV format.
  */
-let csv = Object.keys(newData[0]).join(",");
-csv = JSON.stringify(csv);
-let csvData = "";
-console.log(typeof csv);
-console.log(csv);
+// puts key name in an array 
+let csv = Object.keys(newData[0]);
+//declare  an array for cvs data
+let csvData = [];
+
+// pulls the value of the key for each object and puts it into an array
 for (const key in newData) {
   csvData =
     csvData +
@@ -134,6 +135,9 @@ for (const key in newData) {
     "," +
     newData[key].age;
 }
-csvData = JSON.stringify(csvData);
+//combines csv and csvData into one array of objects
 csv = csv + csvData;
+//converts objects into a string
+csv = JSON.stringify(csv);
+//Print the contents of newData into cvs format
 console.log(csv);
